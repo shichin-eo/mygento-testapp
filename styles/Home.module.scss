@@ -1,0 +1,587 @@
+//! Variables //
+// * font-family
+$main-font: SF Pro Display;
+// * font-family end
+
+// * color
+$main-bg: #fff;
+$main-color: #262626;
+$main-hover-color: #e6f7ff;
+$radio-btn-color: #595959;
+$sumbit-btn-color: #1890ff;
+$sumbit-inactive-btn-color: #e8e8e8;
+// * color end
+
+// * font-size
+$p-font-size: 14px;
+$h1-font-size: 40px;
+$h2-font-size: 22px;
+$input-font-size: 16px;
+// * font=size end
+
+// * input settings
+$input-background-color: #fff;
+$input-border: 1px solid #d9d9d9;
+$input-border-radius: 2px;
+$input-file-background-color: #f5f5f5;
+$input-submit-inactive-color: #bcbcbc;
+$input-focus-color: #40a9ff;
+// * input settings end
+
+// * icon settings
+$plus-icon-bg-color: #8c8c8c;
+// * icon settings end
+
+//* error settings
+$error-color: #f5222d;
+//* error settings end
+//? POPUP
+$popup-header-fs: 24px;
+$popup-body-fs: 20px;
+$popup-btn-fs: 16px;
+//?
+//! end
+.error {
+  color: $error-color;
+  position: absolute;
+  left: 0;
+  bottom: -55%;
+  font-size: $p-font-size;
+}
+.form {
+  background-color: $main-bg;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  padding: 0 5%;
+  position: relative;
+  h1 {
+    width: 80%;
+    height: 10vh;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $h1-font-size;
+    line-height: 38px;
+    color: $main-color;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &_data {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    & > h2 {
+      width: 100%;
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: 600;
+      font-size: $h2-font-size;
+      line-height: 38px;
+      padding: 0;
+      margin: 0;
+      color: $main-color;
+    }
+    &_firstname,
+    &_lastname,
+    &_email {
+      width: 100%;
+      height: 7vh;
+      margin-bottom: 3vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      position: relative;
+      p {
+        font-family: $main-font;
+        font-size: $p-font-size;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $main-color;
+      }
+      input {
+        height: 6vh;
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $input-font-size;
+        line-height: 24px;
+        border: $input-border;
+        border-radius: $input-border-radius;
+        outline: none;
+        padding: 3%;
+      }
+      input:focus {
+        border: 1px solid $input-focus-color;
+        box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+      }
+      input:hover {
+        border: 1px solid $input-focus-color;
+      }
+    }
+    &_file {
+      width: 100%;
+      position: relative;
+      height: 7vh;
+      cursor: pointer;
+      border-radius: $input-border-radius;
+
+      input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        outline: none;
+      }
+      input:focus {
+        border: 1px solid $input-focus-color;
+        box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+      }
+      input:hover {
+        border: 1px solid $input-focus-color;
+      }
+      &_btn {
+        position: absolute;
+        background-color: $input-file-background-color;
+        width: 100%;
+        height: 6vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px dashed #d9d9d9;
+        position: relative;
+        &_plus {
+          position: absolute;
+          top: 50%;
+          left: 15%;
+          transform: translate(-50%, -50%);
+          width: 16px;
+          height: 16px;
+          &_h {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            top: 50%;
+            left: 50%;
+            background-color: $plus-icon-bg-color;
+            transform: translate(-50%, -50%);
+          }
+          &_v {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background-color: $plus-icon-bg-color;
+            transform: rotate(90deg) translateY(-45%);
+          }
+        }
+        p {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: $main-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: $p-font-size;
+          line-height: 22px;
+          color: $radio-btn-color;
+        }
+      }
+      &_filename {
+        position: absolute;
+        top: 25%;
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        svg {
+          margin-right: 2%;
+        }
+        &_clip {
+          width: 10%;
+          height: 50%;
+        }
+        &_remove {
+          width: 10%;
+          height: 50%;
+          position: absolute;
+          right: 0;
+        }
+      }
+      &_filename:hover {
+        color: $sumbit-btn-color;
+        background-color: $main-hover-color;
+      }
+    }
+    &_sex {
+      width: 100%;
+      .error {
+        left: 70%;
+        top: 40%;
+      }
+      &_title {
+        width: 100%;
+        position: relative;
+
+        & > h2 {
+          width: 100%;
+          font-family: $main-font;
+          font-style: normal;
+          font-weight: 600;
+          font-size: $h2-font-size;
+          line-height: 38px;
+          padding: 0;
+          margin: 0;
+          color: $main-color;
+        }
+      }
+
+      &_male,
+      &_female {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $p-font-size;
+        line-height: 22px;
+        color: $radio-btn-color;
+      }
+      &_female {
+        margin-left: 10%;
+      }
+    }
+    &_git {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      position: relative;
+      .error {
+        top: 35%;
+        left: 60%;
+      }
+      & > h2 {
+        width: 100%;
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $h2-font-size;
+        line-height: 38px;
+        padding: 0;
+        margin: 0;
+        color: $main-color;
+      }
+      p {
+        font-family: $main-font;
+        font-size: $p-font-size;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $main-color;
+      }
+      input {
+        width: 100%;
+        height: 5vh;
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $input-font-size;
+        line-height: 24px;
+        border: $input-border;
+        border-radius: $input-border-radius;
+        outline: none;
+        padding: 3%;
+      }
+      input:focus {
+        border: 1px solid $input-focus-color;
+        box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+      }
+      input:hover {
+        border: 1px solid $input-focus-color;
+      }
+    }
+    &_policies {
+      width: 100%;
+      position: relative;
+      margin-bottom: 2vh;
+      .error {
+        bottom: -90%;
+      }
+      &_checkbox {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $p-font-size;
+        line-height: 18px;
+        color: $radio-btn-color;
+        a {
+          font-family: $main-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: $p-font-size;
+          line-height: 18px;
+          color: $sumbit-btn-color;
+          border-bottom: 1px solid $sumbit-btn-color;
+        }
+      }
+    }
+    &_submit {
+      width: 100%;
+      height: 6vh;
+      &_inactive,
+      &_active {
+        width: 100%;
+        height: 100%;
+        background: $sumbit-inactive-btn-color;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px 0px 0px 2px;
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: $input-font-size;
+        line-height: 24px;
+        color: $input-submit-inactive-color;
+        outline: none;
+      }
+      &_active {
+        cursor: pointer;
+        background-color: $sumbit-btn-color;
+        color: $main-bg;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .form {
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+      height: 15vh;
+      margin-top: 10vh;
+    }
+    &_data {
+      h2 {
+        margin-bottom: 2vh;
+      }
+      width: 80%;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      flex-basis: 200px;
+      &_firstname,
+      &_lastname,
+      &_email,
+      &_file {
+        width: 20%;
+        height: 6vh;
+        margin-right: 10vw;
+        margin-bottom: 4vh;
+      }
+      &_file {
+        &_btn {
+          top: 100%;
+          transform: translate(-50%, -100%);
+          height: 4vh;
+        }
+      }
+      &_sex {
+        margin-bottom: 4vh;
+        .error {
+          left: 70%;
+          top: 0;
+          // top: 0;
+        }
+        &_title {
+          width: 20%;
+          & > h2 {
+            margin-bottom: 2vh;
+          }
+        }
+      }
+      &_git {
+        width: 20%;
+        margin-bottom: 3vh;
+        .error {
+          top: 100%;
+          left: 0;
+        }
+        &_link {
+          input {
+            height: 4vh;
+          }
+        }
+      }
+      &_policies {
+        margin-bottom: 4vh;
+        .error {
+          bottom: -80%;
+        }
+      }
+      &_submit {
+        width: 30%;
+        height: 4.7vh;
+      }
+    }
+  }
+}
+
+.errorInput {
+  input {
+    color: $error-color;
+    border: 1px solid $error-color;
+    box-shadow: 0px 0px 4px rgba(245, 34, 45, 0.5);
+  }
+}
+
+//*POPUP**************************************************/
+
+.popup {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999;
+  transition: all 1.5s ease;
+  &_inactive {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &_active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_thanks,
+  &_policies {
+    width: 90%;
+    height: 25%;
+    margin-top: 18vh;
+    background-color: $main-bg;
+    border-radius: 4px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.23);
+    border-radius: 4px;
+    z-index: 999;
+    position: relative;
+
+    &_header,
+    &_body,
+    &_btn {
+      width: 90%;
+      font-family: $main-font;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &_header {
+      height: 20%;
+      font-style: normal;
+      font-weight: bold;
+      font-size: $popup-header-fs;
+      line-height: 38px;
+      overflow: hidden;
+      margin: 2vh 0;
+    }
+    &_body {
+      height: 20%;
+      font-style: normal;
+      font-weight: normal;
+      font-size: $popup-body-fs;
+      line-height: 38px;
+      margin-bottom: 5vh;
+    }
+    &_btn {
+      height: 25%;
+      font-style: normal;
+      font-weight: normal;
+      font-size: $popup-btn-fs;
+      line-height: 24px;
+      border-radius: 2px 0px 0px 2px;
+      cursor: pointer;
+      background-color: $sumbit-btn-color;
+      color: $main-bg;
+      outline: none;
+      border: none;
+      margin-bottom: 2vh;
+    }
+    &_close {
+      position: absolute;
+      top: 5%;
+      right: 2%;
+      cursor: pointer;
+    }
+  }
+  &_policies {
+    height: 65%;
+    justify-content: flex-start;
+    &_header {
+      height: 15vh;
+      line-height: 30px;
+      margin-bottom: 2vh;
+    }
+    &_body {
+      height: 70vh;
+      display: inline-block;
+      font-size: 18px;
+      overflow-y: auto;
+      overflow-x: auto;
+      margin-bottom: 1vh;
+    }
+    &_btn {
+      height: 9vh;
+    }
+  }
+  &_shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.4;
+    z-index: 10;
+  }
+}
+@media screen and (min-width: 400px) {
+  .popup {
+    &_thanks {
+      width: 30%;
+    }
+    &_policies {
+      width: 50%;
+      &_header {
+        height: 10vh;
+      }
+      &_body {
+        margin-bottom: 3vh;
+      }
+      &_btn {
+        width: 50%;
+      }
+    }
+  }
+}
